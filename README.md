@@ -19,10 +19,10 @@ You should carefully review and trust this image before running it with the `pri
 
 1) Create a volume with ssh configuration and keys.  I named mine "ssh".  Specify this in the environment variable DOT_SSH.
 
-2) Decide where to send the files.  Specify this using the environment variables TARGET and DESTINATION.  The files will go to ${TARGET}:${DESTINATION}.
+2) Decide where to send the files.  Specify this using the environment variables DESTINATION.
 
 3) You must use the `--privileged` switch.  It will not work without it.
 
-`docker run --interactive --tty --rm --env DOT_SSH=ssh --env TARGET=backupserver --env DESTINATION=volumes --privileged --volume /var/run/docker.sock:/var/run/docker.sock:ro emorymerryman/send-data-volumes:1.0.0`
+`docker run --interactive --tty --rm --env DOT_SSH=ssh --env DESTINATION=backupserver/volumes --privileged --volume /var/run/docker.sock:/var/run/docker.sock:ro emorymerryman/send-data-volumes:1.0.0`
 
 Running this command, all your docker data volumes will be rsynced to the specified destination.
